@@ -28,11 +28,12 @@ A Laravel application for managing student records (name, address, mobile number
 
 ## Getting started
 
-Requirements: PHP 8.2+ and Composer.
+Requirements: PHP 8.2 or 8.3 and Composer. The current `composer.lock` predates PHP 8.4 support; run `composer update` to use PHP 8.4.
 
 ```bash
 composer install
-# configure .env: database defaults to SQLite (touch database/database.sqlite)
+cp .env.example .env        # SQLite by default
+touch database/database.sqlite
 php artisan key:generate
 php artisan migrate
 php artisan serve           # http://localhost:8000
