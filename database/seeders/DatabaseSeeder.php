@@ -2,22 +2,28 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Course;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Seed the application's database with sample courses and students.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $courses = [
+            ['code' => 'CS101', 'name' => 'Introduction to Programming', 'description' => 'Programming fundamentals: variables, control flow, functions and basic data structures.'],
+            ['code' => 'CS204', 'name' => 'Data Structures and Algorithms', 'description' => 'Lists, trees, graphs and hash tables, with analysis of algorithm complexity.'],
+            ['code' => 'IS210', 'name' => 'Database Systems', 'description' => 'Relational modelling, SQL, normalisation and transactions.'],
+            ['code' => 'SE301', 'name' => 'Web Application Development', 'description' => 'Building server-rendered and API-driven web applications end to end.'],
+        ];
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        foreach ($courses as $course) {
+            Course::create($course)->students()->saveMany(Student::factory()->count(8)->make(['course_id' => null]));
+        }
+
+        Student::factory()->count(3)->create(['course_id' => null]);
     }
 }
