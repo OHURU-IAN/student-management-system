@@ -3,7 +3,7 @@
 A Laravel application for managing students and the courses they're enrolled in. Staff sign in to reach searchable, paginated student records and course management with enrolment counts. Input is validated on the server, and a feature-test suite runs in CI on every push.
 
 ![PHP](https://img.shields.io/badge/PHP_8.2--8.4-777BB4?logo=php&logoColor=fff)
-![Laravel](https://img.shields.io/badge/Laravel_11-FF2D20?logo=laravel&logoColor=fff)
+![Laravel](https://img.shields.io/badge/Laravel_12-FF2D20?logo=laravel&logoColor=fff)
 ![SQLite / MySQL](https://img.shields.io/badge/SQLite_%2F_MySQL-003B57?logo=sqlite&logoColor=fff)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap_5-7952B3?logo=bootstrap&logoColor=fff)
 [![Tests](https://github.com/OHURU-IAN/student-management-system/actions/workflows/tests.yml/badge.svg)](https://github.com/OHURU-IAN/student-management-system/actions/workflows/tests.yml)
