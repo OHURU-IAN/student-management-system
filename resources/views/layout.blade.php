@@ -11,16 +11,25 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <div class="container">
             <a class="navbar-brand fw-semibold" href="{{ route('dashboard') }}">Student Management</a>
+            @auth
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-md-center">
                     <li class="nav-item"><a class="nav-link @if(request()->routeIs('dashboard')) active @endif" href="{{ route('dashboard') }}">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link @if(request()->routeIs('students.*')) active @endif" href="{{ route('students.index') }}">Students</a></li>
                     <li class="nav-item"><a class="nav-link @if(request()->routeIs('courses.*')) active @endif" href="{{ route('courses.index') }}">Courses</a></li>
+                    <li class="nav-item ms-md-3">
+                        <form method="POST" action="{{ route('logout') }}" class="d-flex align-items-center gap-2">
+                            @csrf
+                            <span class="navbar-text small">{{ auth()->user()->name }}</span>
+                            <button class="btn btn-sm btn-outline-light">Sign out</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
+            @endauth
         </div>
     </nav>
 
